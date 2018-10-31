@@ -63,7 +63,7 @@ const Header = () => {
             <div className="bar">
                 <Logo>
                     <Link href="/">
-                        <a><img src="/static/assets/logo.png" alt="Dell Store" /></a>
+                        <a><img src="/static/assets/logo.jpg" alt="Aeropost" /></a>
                     </Link>
                 </Logo>
                 <Nav></Nav>
