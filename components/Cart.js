@@ -119,7 +119,7 @@ class Cart extends React.Component {
                                         />
                                     </label>
                                     <label htmlFor="receiptId">
-                                        <span>N° referencia: </span>
+                                        <span>N° factura: </span>
                                         <input
                                         type="text"
                                         name="receiptId"
