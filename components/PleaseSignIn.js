@@ -12,10 +12,7 @@ const PleaseSignIn = props => (
             if(loading) return <p>Loading...</p>
             if(!data.me || !hasPermissions(data.me.permissions, props.permissions)){
                 return(
-                    <>
-                        <p>Please Sign In to continue</p>
-                        <Signin />
-                    </>
+                    <Signin />
                 );
             }
             return props.children;

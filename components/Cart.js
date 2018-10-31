@@ -125,7 +125,7 @@ class Cart extends React.Component {
                                         name="receiptId"
                                         required
                                         value={this.state.receiptId}
-                                        placeholder="Número de referencia"
+                                        placeholder="Número de factura"
                                         onChange={ this.handleChange }
                                         />
                                     </label>

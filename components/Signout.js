@@ -17,7 +17,7 @@ const Signout = props => (
         { query: CURRENT_USER_QUERY }
     ]}
     mutation={SIGNOUT_MUTATION}>
-        { signout => <button onClick={signout}>Sign Out</button> }
+        { signout => <button onClick={signout}>Salir</button> }
     </Mutation>
 );
 

@@ -4,9 +4,9 @@ const Item = styled.div`
   background: white;
   border: 1px solid ${props => props.theme.offWhite};
   box-shadow: ${props => props.theme.bs};
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 70px;
 
   img {
     width: 100%;
@@ -22,12 +22,12 @@ const Item = styled.div`
     color: ${props => props.theme.red};
     text-align:left;
   }
+
   .buttonList {
     display: grid;
     width: 100%;
-    margin: 1rem 0 0 0;
+    margin: 0;
     grid-gap: 1px;
-    background: ${props => props.theme.lightgrey};
     text-align:center;
 
     & > * {
@@ -58,9 +58,9 @@ const Item = styled.div`
       transform:translateY(0);
       opacity: 1;
     }
-    :hover{
+    /* :hover{
       transform: scale(1.05);
-    }
+    } */
   }
 `;
 

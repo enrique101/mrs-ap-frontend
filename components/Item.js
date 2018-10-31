@@ -17,7 +17,7 @@ class Item extends Component {
                         pathname: '/item',
                         query: {id: item.id},
                     }}>
-                    <a>
+                    <a className="item-card">
                     <p>{ item.title }</p>
                     {item.image && <img src={ item.image } alt={item.title} />}
                     <PriceTag>{formatMoney(item.price)}</PriceTag>
