@@ -15,6 +15,7 @@ const SINGLE_ITEM_QUERY = gql`
       title
       description
       price
+      cost
     }
   }
 `;
@@ -25,17 +26,20 @@ const UPDATE_ITEM_MUTATION = gql`
     $title: String
     $description: String
     $price: Int
+    $cost: Int
   ) {
     updateItem(
       id: $id
       title: $title
       description: $description
       price: $price
+      cost: $cost
     ) {
       id
       title
       description
       price
+      cost
     }
   }
 `;
@@ -94,6 +98,18 @@ class UpdateItem extends Component {
                         placeholder="Price"
                         required
                         defaultValue={data.item.price}
+                        onChange={this.handleChange}
+                      />
+                    </label>
+                    <label htmlFor="cost">
+                      Cost
+                      <input
+                        type="number"
+                        id="cost"
+                        name="cost"
+                        placeholder="Cost"
+                        required
+                        defaultValue={data.item.cost}
                         onChange={this.handleChange}
                       />
                     </label>

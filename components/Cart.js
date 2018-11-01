@@ -24,12 +24,11 @@ const LOCAL_STATE_QUERY = gql`
 `;
 
 const CREATE_ORDER_MUTATION = gql`
-  mutation createOrderRequest($name: String!, $account: String!, $receipt: String!) {
-    createOrderRequest(name: $name, account:$account, receipt: $receipt) {
+  mutation createOrderRequest($name: String!, $account: String!) {
+    createOrderRequest(name: $name, account:$account) {
       id
       clientName
       clientAccount
-      receiptId
       total
       items {
         id
@@ -51,7 +50,6 @@ class Cart extends React.Component {
     state = { 
         clientName: '',
         clientAccount: '',
-        receiptId: '',
     };
     handleChange = e => {e.preventDefault();this.setState({ [e.target.name]: e.target.value });}
     render() {
@@ -79,13 +77,11 @@ class Cart extends React.Component {
                                     variables:{
                                         name: this.state.clientName,
                                         account: this.state.clientAccount,
-                                        receipt: this.state.receiptId,
                                     }
                                 });
                                 this.setState({
                                     clientName: '',
                                     clientAccount: '',
-                                    receiptId: '',
                                 });
                                   Router.push({
                                       pathname: '/order',
@@ -115,17 +111,6 @@ class Cart extends React.Component {
                                         required
                                         placeholder="Número de casillero"
                                         value={this.state.clientAccount}
-                                        onChange={ this.handleChange }
-                                        />
-                                    </label>
-                                    <label htmlFor="receiptId">
-                                        <span>N° factura: </span>
-                                        <input
-                                        type="text"
-                                        name="receiptId"
-                                        required
-                                        value={this.state.receiptId}
-                                        placeholder="Número de factura"
                                         onChange={ this.handleChange }
                                         />
                                     </label>

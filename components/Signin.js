@@ -4,7 +4,6 @@ import gql from 'graphql-tag';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
 import {CURRENT_USER_QUERY } from './User';
-import {ALL_USERS_QUERY } from './Permissions';
 const SIGNIN_MUTATION = gql`
     mutation SIGNIN_MUTATION(
         $email: String!,

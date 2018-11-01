@@ -7,12 +7,15 @@ import gql from 'graphql-tag';
 import Error from './ErrorMessage';
 import formatMoney from '../lib/formatMoney';
 import OrderItemStyles from './styles/OrderItemStyles';
+import SearchOrders from './SearchOrders';
 
 const USER_ORDERS_QUERY = gql`
   query USER_ORDERS_QUERY {
     orders(orderBy: createdAt_DESC) {
       id
-      total
+      tracking
+      totalCost
+      status
       createdAt
       items {
         id
@@ -65,6 +68,7 @@ class OrderList extends React.Component {
           return (
             <div>
               <h2>Tienes {orders.length} ordenes</h2>
+              <SearchOrders></SearchOrders>
               <OrderUl>
                 {orders.map(order => (
                   <OrderItemStyles key={order.id}>
@@ -76,11 +80,12 @@ class OrderList extends React.Component {
                     >
                       <a>
                         <div className="order-meta">
-                          <p className="title">Número de orden {order.id}</p>
+                          <p className="title">Número de orden {order.tracking}</p>
                           <p className="items">{order.items.reduce((a, b) => a + b.quantity, 0)} artículo(s)</p>
                           <p className="qty">{order.items.length} Producto{order.items.length > 1 && 's'}</p>
                           <p className="date">{formatDistance(order.createdAt, new Date())}</p>
-                          <p className="total">{formatMoney(order.total)}</p>
+                          <p className="total">{formatMoney(order.totalCost)}</p>
+                          <p className="Estado">{order.status}</p>
                         </div>
                       </a>
                     </Link>
