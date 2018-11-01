@@ -39,7 +39,7 @@ class Signup extends Component {
                       refetchQueries={[
                         { query: CURRENT_USER_QUERY }
                     ]}>
-                {(signup, { error, loading }) => (
+                {(signup, { error, loading, called }) => (
                     <Form
                     method="post"
                     onSubmit={async e => {
@@ -51,6 +51,7 @@ class Signup extends Component {
                         <fieldset disabled={loading} aria-busy={loading}>
                             <h2>Registrate</h2>
                             <Error error={error}/>
+                            {!error && !loading && called && <p>Revisa tu correo para confirmar tu cuenta</p>}
                             <label htmlFor="email">
                                 Correo
         <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email" placeholder="Correo" value={this.state.email} onChange={this.handleChange} />
