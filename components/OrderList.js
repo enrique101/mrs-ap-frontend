@@ -11,7 +11,7 @@ import SearchOrders from './SearchOrders';
 
 const USER_ORDERS_QUERY = gql`
   query USER_ORDERS_QUERY {
-    orders(orderBy: createdAt_DESC) {
+    ordersByUser(orderBy: createdAt_DESC) {
       id
       tracking
       totalCost
@@ -62,7 +62,7 @@ class OrderList extends React.Component {
   render() {
     return (
       <Query query={USER_ORDERS_QUERY}>
-        {({ data: { orders }, loading, error }) => {
+        {({ data: { ordersByUser:orders }, loading, error }) => {
           if (loading) return <p>loading...</p>;
           if (error) return <Error erorr={error} />;
           return (
