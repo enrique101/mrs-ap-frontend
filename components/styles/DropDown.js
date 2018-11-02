@@ -9,7 +9,7 @@ const DropDown = styled.div`
 
 const DropDownItem = styled.div`
   border-bottom: 1px solid ${props => props.theme.lightgrey};
-  background: ${props => (props.highlighted ? props.theme.red : 'white')};
+  background: ${props => (props.highlighted ? props.theme.lightgrey : 'white')};
   padding: 1rem;
   transition: all 0.2s;
   ${props => (props.highlighted ? 'padding-left: 2rem;' : null)};
@@ -33,6 +33,10 @@ const glow = keyframes`
 
 const SearchStyles = styled.div`
   position: relative;
+  .search-border{
+    border: 1px solid ${props=>props.theme.red};
+    border-radius: 1.5rem;
+  }
   input {
     width: 100%;
     padding: 10px;

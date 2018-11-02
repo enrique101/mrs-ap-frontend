@@ -43,7 +43,7 @@ export default class SearchOrders extends Component {
   render() {
     resetIdCounter();
     return (
-      <SearchStyles>
+      <SearchStyles >
         <Downshift onChange={routeToItem} itemToString={order =>(order === null ? '' : order.tracking)}>
           {({ getInputProps , getItemProps, isOpen, inputValue, highlightedIndex}) => (
                 <div>
@@ -58,7 +58,7 @@ export default class SearchOrders extends Component {
                           type: 'search',
                           placeholder: 'Buscar Orden',
                           id: 'search',
-                          className: this.state.loading ? 'loading' : '',
+                          className: this.state.loading ? 'loading search-border' : 'search-border',
                         })}
                         />
                       )}

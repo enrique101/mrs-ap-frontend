@@ -25,7 +25,7 @@ const Pagination = props => {
                 const pages = Math.ceil(count / perPage);
                 const currentPage = props.page;
                 return (
-                    <PaginationStyles data-test="pagination">
+                    <PaginationStyles className="no-print" data-test="pagination">
                         <Head>
                         <title>
                             Dell Store | Aeropost - Page {currentPage} of {pages}

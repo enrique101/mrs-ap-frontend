@@ -2,11 +2,20 @@ import styled from 'styled-components';
 
 const Item = styled.div`
   background: white;
-  border: 1px solid ${props => props.theme.offWhite};
-  box-shadow: ${props => props.theme.bs};
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 1fr 70px;
+  grid-template-rows: 1fr 50px;
+  grid-row-gap: 2rem;
+  
+  a.item-card{
+    transition: box-shadow 0.3s ease-in-out;
+    border-left: 1px solid ${props => props.theme.offWhite};
+    border-right: 1px solid ${props => props.theme.offWhite};
+    :hover{
+      box-shadow: ${props => props.theme.bs};
+    }
+
+  }
 
   img {
     width: 100%;
@@ -29,38 +38,10 @@ const Item = styled.div`
     margin: 0;
     grid-gap: 1px;
     text-align:center;
-
-    & > * {
-      background: ${props => props.theme.red};
-      border: 0;
-      font-size: 1.5rem;
-      padding: 1rem;
-      color:#fff;
+    grid-auto-flow: column;
+    a{
+      display:grid;
     }
-    @media screen and (min-width: ${props => props.theme.desKBrk}) {
-      transform:translateY(100%);
-      transition: all 0.5s;
-      opacity: 0;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    }
-  }
-  .icon-add-to-cart {
-    font-size: 20px;
-    display: block;
-    line-height: 35px;
-    width: 100%;
-    height: 100%;
-  }
-  @media screen and (min-width: ${props => props.theme.desKBrk}) {
-    overflow:hidden;
-    transition: all 0.5s;
-    :hover .buttonList{
-      transform:translateY(0);
-      opacity: 1;
-    }
-    /* :hover{
-      transform: scale(1.05);
-    } */
   }
 `;
 

@@ -6,7 +6,7 @@ import AddToCart from './AddToCart';
 import formatMoney from '../lib/formatMoney';
 import ItemStyles from './styles/ItemStyles';
 import PriceTag from './styles/PriceTag';
-import {hasPermissions, AppPermissions} from '../lib/utils';
+import SickButton from './styles/SickButton';
 
 class Item extends Component {
     render() {
@@ -32,7 +32,11 @@ class Item extends Component {
                                 query: { id: item.id },
                                 }}
                             >
-                                <a>Editar ✏️</a>
+                                <a>
+                                    <SickButton>
+                                        Editar
+                                    </SickButton>
+                                </a>
                             </Link>
                         )
                     }

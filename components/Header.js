@@ -60,7 +60,7 @@ const StyledHeader = styled.header`
 const Header = () => {
     return (
         <StyledHeader>
-            <div className="bar">
+            <div className="bar no-print">
                 <Logo>
                     <Link href="/">
                         <a><img src="/static/assets/logo.jpg" alt="Aeropost" /></a>
@@ -68,7 +68,7 @@ const Header = () => {
                 </Logo>
                 <Nav></Nav>
             </div>
-            <div className="sub-bar">
+            <div className="sub-bar no-print">
                 <Search />
             </div>
             <Cart />

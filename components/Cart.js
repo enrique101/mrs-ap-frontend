@@ -71,6 +71,7 @@ class Cart extends React.Component {
                         {me.cart.map(cartItem => <CartItem cartItem={cartItem} key={cartItem.id}></CartItem>)}
                     </ul>
                         <form
+                            autoComplete="off"
                             onSubmit={async e => {
                                 e.preventDefault();
                                 const order = await createOrderRequest({
@@ -87,6 +88,7 @@ class Cart extends React.Component {
                                       pathname: '/order',
                                       query: { id: order.data.createOrderRequest.id },
                                     });
+                                  toggleCart();
                               }}>
                               {me.cart.length > 0 && (
 

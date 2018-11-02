@@ -3,6 +3,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import Head from "next/head";
+import AddToCart from './AddToCart';
 import Error from "./ErrorMessage";
 
 const SingleItemStyles = styled.div`
@@ -14,8 +15,11 @@ const SingleItemStyles = styled.div`
   min-height: 800px;
   img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+  }
+  .col1 button{
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
   }
   .details {
     margin: 3rem;
@@ -49,7 +53,10 @@ export default class SingleItem extends Component {
               <Head>
                 <title>Dell Store | Aeropost | {item.title}</title>
               </Head>
-              <img src={item.largeImage} alt={item.title} />
+              <div className="col1">
+                <img src={item.largeImage} alt={item.title} />
+                <AddToCart id={item.id} />
+              </div>
               <div className="details">
                 <h2>{item.title}</h2>
                 <p>{item.description}</p>
