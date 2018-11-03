@@ -1,8 +1,7 @@
 import React from 'react';
-import { format } from 'date-fns';
 import styled from 'styled-components';
-import gql from 'graphql-tag';
 import formatMoney from '../lib/formatMoney';
+import PropTypes from 'prop-types';
 const ReportData = styled.div`
     display:grid;
     justify-items: center;
@@ -17,6 +16,9 @@ const ReportData = styled.div`
 `;
 
 class ReportTable extends React.Component {
+    static propTypes = {
+        orders: PropTypes.array.isRequired,
+    };
     state = { 
         report: {},
     }

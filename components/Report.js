@@ -1,10 +1,17 @@
 import React from 'react';
 import { ApolloConsumer } from "react-apollo";
 import { format } from 'date-fns';
-import styled from 'styled-components';
 import gql from 'graphql-tag';
 import SickButton from "./styles/SickButton";
 import ReportTable from './ReportTable';
+import styled from 'styled-components';
+
+const Filter = styled.div`
+    display:grid;
+    grid-gap: 1rem;
+    grid-auto-flow: column;
+    width:50%;
+`;
 
 const REPORT = gql`
   query REPORT($startDate: DateTime!, $endDate: DateTime!){
@@ -55,10 +62,12 @@ class Report extends React.Component {
                 <ApolloConsumer>
                       {(client)=>(
                         <>
+                        <Filter>
                             <input className="no-print" max={format(new Date(),'yyyy-MM-dd')} value={format(this.state.startDate,'yyyy-MM-dd')} onChange={this.handleChange} name="startDate" type="date"/>
                             <input className="no-print" max={format(new Date(),'yyyy-MM-dd')} value={format(this.state.endDate,'yyyy-MM-dd')} onChange={this.handleChange} name="endDate" type="date"/>
                             <SickButton className="no-print" onClick={ e => this.generateReport(e,client)}>Crear Reporte</SickButton>
-                            {this.state.orders.length > 0 && <ReportTable orders={this.state.orders}></ReportTable>}
+                        </Filter>
+                        {this.state.orders.length > 0 && <ReportTable orders={this.state.orders}></ReportTable>}
                         </>
                       )}
                 </ApolloConsumer>
