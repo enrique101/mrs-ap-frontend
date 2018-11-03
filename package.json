@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines":{"node": "10.1.x"}, 
+  "engines":{"node": "8.9.4"}, 
   "scripts": {
     "dev": "next -p 7777",
     "build": "next build",
